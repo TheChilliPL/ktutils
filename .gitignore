@@ -1,0 +1,15 @@
+.gradle
+/build/
+/act/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Cache of project
+.gradletasknamecache
+
+# IntelliJ IDEA
+/.idea/
+
+# Log files
+**.log
