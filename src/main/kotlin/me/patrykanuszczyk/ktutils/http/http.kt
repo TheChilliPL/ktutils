@@ -17,11 +17,12 @@ val HttpURLConnection.inputOrErrorStream: InputStream
     }
 
 fun urlEncode(str: String): String {
-    return URLEncoder.encode(str, Charsets.UTF_8)
+    // Using (String, String) -> String implementation so it works on Java 8.
+    return URLEncoder.encode(str, "UTF-8")
 }
 
 fun urlDecode(str: String): String {
-    return URLDecoder.decode(str, Charsets.UTF_8)
+    return URLDecoder.decode(str, "UTF-8")
 }
 
 /**
