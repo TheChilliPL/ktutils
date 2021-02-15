@@ -4,10 +4,11 @@ import java.io.Reader
 import kotlin.reflect.KClass
 
 abstract class SecureString : CharSequence {
+    open val asCharArray get() = CharArray(length) { get(it) }
+
     open val asString: String
         get() {
-            val array = CharArray(length) { get(it) }
-            return array.concatToString()
+            return asCharArray.concatToString()
         }
 
     protected abstract fun clear()
