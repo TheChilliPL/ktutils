@@ -11,6 +11,27 @@ abstract class SecureString : CharSequence {
             return asCharArray.concatToString()
         }
 
+    /**
+     * Copies the (undecoded) bytes into a byte array,
+     * exactly the same way a [CharArray.copyInto] would do.
+     *
+     * Remember to clear the array after use, so it doesn't stay
+     * in the memory.
+     */
+    fun copyInto(
+        destination: CharArray,
+        destinationOffset: Int = 0,
+        startIndex: Int = 0,
+        endIndex: Int = length
+    ): CharArray {
+        var j = destinationOffset
+        for(i in startIndex until endIndex) {
+            destination[j] = get(i)
+            j++
+        }
+        return destination
+    }
+
     protected abstract fun clear()
 
     protected fun finalize() {
