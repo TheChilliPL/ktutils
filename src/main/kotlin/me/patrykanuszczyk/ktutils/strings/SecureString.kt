@@ -1,18 +1,23 @@
 package me.patrykanuszczyk.ktutils.strings
 
+import me.patrykanuszczyk.ktutils.annotations.Experimental
 import java.io.Reader
 import kotlin.reflect.KClass
 
+//TODO Make SecureString not extend CharSequence.
+// Reason: toString() is used in many CharSequence functions, but shouldn't
+// represent the actual data, because it can be implicitly converted by
+// accident (e.g. when logged).
+@Experimental
 abstract class SecureString : CharSequence {
-    open val asCharArray get() = CharArray(length) { get(it) }
+    open fun toCharArray() = CharArray(length) { get(it) }
 
-    open val asString: String
-        get() {
-            return asCharArray.concatToString()
-        }
+    override fun toString(): String {
+        return toCharArray().concatToString()
+    }
 
     /**
-     * Copies the (undecoded) bytes into a byte array,
+     * Copies the (decoded) bytes into a byte array,
      * exactly the same way a [CharArray.copyInto] would do.
      *
      * Remember to clear the array after use, so it doesn't stay
@@ -29,6 +34,7 @@ abstract class SecureString : CharSequence {
             destination[j] = get(i)
             j++
         }
+        this.toHexBytes()
         return destination
     }
 

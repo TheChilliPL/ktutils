@@ -10,11 +10,7 @@ internal class SecureStringTest {
         val password = "super-secret-password"
         val secure = SecureString.fromCharSequence(password)
 
-        println(secure)
-        assertNotEquals(secure.toString(), password)
-
-        println(secure.asString)
-        assertEquals(password, secure.asString)
+        assertEquals(password, secure.toString())
     }
 
     @Test
@@ -22,10 +18,6 @@ internal class SecureStringTest {
         val password = "super-secret-resource"
         val secure = SecureString.fromResource(this::class, "sst_resource")
 
-        println(secure)
-        assertNotEquals(secure.toString(), password)
-
-        println(secure.asString)
-        assertEquals(password, secure.asString)
+        assertEquals(password, secure.toString())
     }
 }
