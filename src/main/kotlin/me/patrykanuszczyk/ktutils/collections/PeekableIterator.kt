@@ -19,5 +19,3 @@ interface PeekableIterator<out T> : Iterator<T> {
         fun <T> Sequence<T>.peekableIterator() = PeekableIterator(this)
     }
 }
-
-
