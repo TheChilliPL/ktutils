@@ -100,6 +100,37 @@ public final class me/patrykanuszczyk/ktutils/random/SecureRandom : kotlin/rando
 	public fun nextBits (I)I
 }
 
+public final class me/patrykanuszczyk/ktutils/reflection/ClassPropertyKt {
+	public static final fun getValue (Lkotlin/reflect/KClass;Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Class;
+}
+
+public final class me/patrykanuszczyk/ktutils/reflection/ConstructorProperty : kotlin/properties/ReadOnlyProperty {
+	public static final field Companion Lme/patrykanuszczyk/ktutils/reflection/ConstructorProperty$Companion;
+	public fun <init> (Ljava/lang/Class;[Ljava/lang/Class;)V
+	public synthetic fun getValue (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
+	public fun getValue (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/reflect/Constructor;
+}
+
+public final class me/patrykanuszczyk/ktutils/reflection/ConstructorProperty$Companion {
+}
+
+public final class me/patrykanuszczyk/ktutils/reflection/MethodProperty : kotlin/properties/ReadOnlyProperty {
+	public static final field Companion Lme/patrykanuszczyk/ktutils/reflection/MethodProperty$Companion;
+	public fun <init> (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)V
+	public synthetic fun getValue (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/Object;
+	public fun getValue (Ljava/lang/Object;Lkotlin/reflect/KProperty;)Ljava/lang/reflect/Method;
+}
+
+public final class me/patrykanuszczyk/ktutils/reflection/MethodProperty$Companion {
+}
+
+public final class me/patrykanuszczyk/ktutils/reflection/ReflectionKt {
+	public static final fun findMethod (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+	public static final fun methodCallToString (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/String;
+	public static final fun tryFindMethod (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+	public static final fun tryGetDeclaredMethod (Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+}
+
 public final class me/patrykanuszczyk/ktutils/strings/HexKt {
 	public static final fun toHex ([B)Ljava/lang/String;
 	public static final fun toHexBytes (Ljava/lang/CharSequence;)[B
