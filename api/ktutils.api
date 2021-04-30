@@ -1,0 +1,157 @@
+public abstract class me/patrykanuszczyk/ktutils/Result {
+	public fun <init> ()V
+	public final fun fail (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public final fun getFailValue ()Ljava/lang/Object;
+	public final fun getFailed ()Z
+	public final fun getSuccessValue ()Ljava/lang/Object;
+	public abstract fun getSuccessful ()Z
+	public final fun ifFailed (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+	public final fun ifSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+	public abstract fun mapFail (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+	public abstract fun mapSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+}
+
+public final class me/patrykanuszczyk/ktutils/Result$Failure : me/patrykanuszczyk/ktutils/Result {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun getSuccessful ()Z
+	public final fun getValue ()Ljava/lang/Object;
+	public fun mapFail (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result$Failure;
+	public synthetic fun mapFail (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+	public fun mapSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result$Failure;
+	public synthetic fun mapSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+}
+
+public final class me/patrykanuszczyk/ktutils/Result$Success : me/patrykanuszczyk/ktutils/Result {
+	public fun <init> (Ljava/lang/Object;)V
+	public fun getSuccessful ()Z
+	public final fun getValue ()Ljava/lang/Object;
+	public fun mapFail (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result$Success;
+	public synthetic fun mapFail (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+	public fun mapSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result$Success;
+	public synthetic fun mapSuccess (Lkotlin/jvm/functions/Function1;)Lme/patrykanuszczyk/ktutils/Result;
+}
+
+public abstract interface annotation class me/patrykanuszczyk/ktutils/annotations/Experimental : java/lang/annotation/Annotation {
+}
+
+public final class me/patrykanuszczyk/ktutils/collections/CollectionsKt {
+	public static final fun addAll (Ljava/util/Collection;[Ljava/lang/Object;)Z
+	public static final fun addUnique (Ljava/util/Collection;Ljava/lang/Object;)V
+	public static final fun nextOrNull (Ljava/util/Iterator;)Ljava/lang/Object;
+	public static final fun normalize (Ljava/util/List;I)Ljava/util/List;
+	public static final fun peekOrNull (Lme/patrykanuszczyk/ktutils/collections/PeekableIterator;)Ljava/lang/Object;
+	public static final fun swap (Ljava/util/List;II)Ljava/util/List;
+}
+
+public abstract interface class me/patrykanuszczyk/ktutils/collections/PeekableIterator : java/util/Iterator, kotlin/jvm/internal/markers/KMappedMarker {
+	public static final field Companion Lme/patrykanuszczyk/ktutils/collections/PeekableIterator$Companion;
+	public abstract fun hasNext ()Z
+	public abstract fun next ()Ljava/lang/Object;
+	public abstract fun peek ()Ljava/lang/Object;
+}
+
+public final class me/patrykanuszczyk/ktutils/collections/PeekableIterator$Companion {
+	public final fun invoke (Ljava/lang/Iterable;)Lme/patrykanuszczyk/ktutils/collections/PeekableIterator;
+	public final fun invoke (Lkotlin/sequences/Sequence;)Lme/patrykanuszczyk/ktutils/collections/PeekableIterator;
+	public final fun peekableIterator (Ljava/lang/Iterable;)Lme/patrykanuszczyk/ktutils/collections/PeekableIterator;
+	public final fun peekableIterator (Lkotlin/sequences/Sequence;)Lme/patrykanuszczyk/ktutils/collections/PeekableIterator;
+}
+
+public final class me/patrykanuszczyk/ktutils/collections/PeekableWrapperIterator : me/patrykanuszczyk/ktutils/collections/PeekableIterator {
+	public fun hasNext ()Z
+	public fun next ()Ljava/lang/Object;
+	public fun peek ()Ljava/lang/Object;
+	public fun remove ()V
+}
+
+public final class me/patrykanuszczyk/ktutils/http/HttpKt {
+	public static final fun encodeHttpURLParameters (Ljava/util/Map;)Ljava/lang/String;
+	public static final fun getInputOrErrorStream (Ljava/net/HttpURLConnection;)Ljava/io/InputStream;
+	public static final fun isError (Ljava/net/HttpURLConnection;)Z
+	public static final fun urlDecode (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun urlEncode (Ljava/lang/String;)Ljava/lang/String;
+}
+
+public final class me/patrykanuszczyk/ktutils/locks/LocksKt {
+	public static final fun use (Ljava/util/concurrent/locks/Lock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final fun useInterruptibly (Ljava/util/concurrent/locks/Lock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final fun useRead (Ljava/util/concurrent/locks/ReadWriteLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+	public static final fun useWrite (Ljava/util/concurrent/locks/ReadWriteLock;Lkotlin/jvm/functions/Function0;)Ljava/lang/Object;
+}
+
+public final class me/patrykanuszczyk/ktutils/math/BitwiseKt {
+	public static final fun xor (CC)C
+}
+
+public final class me/patrykanuszczyk/ktutils/math/MathKt {
+	public static final fun getNiceFormatUnits ()Ljava/util/List;
+	public static final fun niceFormat (Ljava/lang/Number;ILjava/util/List;I)Ljava/lang/String;
+	public static synthetic fun niceFormat$default (Ljava/lang/Number;ILjava/util/List;IILjava/lang/Object;)Ljava/lang/String;
+	public static final fun round (DI)D
+}
+
+public final class me/patrykanuszczyk/ktutils/random/RandomKt {
+	public static final fun nextChar (Lkotlin/random/Random;)C
+}
+
+public final class me/patrykanuszczyk/ktutils/random/SecureRandom : kotlin/random/Random {
+	public fun <init> ()V
+	public fun <init> ([B)V
+	public fun nextBits (I)I
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/HexKt {
+	public static final fun toHex ([B)Ljava/lang/String;
+	public static final fun toHexBytes (Ljava/lang/CharSequence;)[B
+	public static final fun toLongBE ([B)J
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/LevenshteinDistanceKt {
+	public static final fun levenshteinDistance (Ljava/lang/CharSequence;Ljava/lang/CharSequence;)I
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/PaddedSecureString : me/patrykanuszczyk/ktutils/strings/SecureString {
+	public fun <init> (I)V
+	public fun <init> (Ljava/io/Reader;I)V
+	public fun <init> (Ljava/lang/CharSequence;)V
+	public fun <init> (Ljava/lang/CharSequence;II)V
+	public fun get (I)C
+	public fun getLength ()I
+	public synthetic fun subSequence (II)Ljava/lang/CharSequence;
+	public fun subSequence (II)Lme/patrykanuszczyk/ktutils/strings/SecureString;
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/RegexKt {
+	public static final fun get (Lkotlin/text/MatchResult;I)Ljava/lang/String;
+}
+
+public abstract class me/patrykanuszczyk/ktutils/strings/SecureString : java/lang/CharSequence {
+	public static final field Companion Lme/patrykanuszczyk/ktutils/strings/SecureString$Companion;
+	public fun <init> ()V
+	public final fun charAt (I)C
+	protected abstract fun clear ()V
+	public final fun copyInto ([CIII)[C
+	public static synthetic fun copyInto$default (Lme/patrykanuszczyk/ktutils/strings/SecureString;[CIIIILjava/lang/Object;)[C
+	protected final fun finalize ()V
+	public abstract fun get (I)C
+	public abstract fun getLength ()I
+	public final fun length ()I
+	public fun toCharArray ()[C
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/SecureString$Companion {
+	public final fun fromCharSequence (Ljava/lang/CharSequence;)Lme/patrykanuszczyk/ktutils/strings/SecureString;
+	public final fun fromReader (Ljava/io/Reader;I)Lme/patrykanuszczyk/ktutils/strings/SecureString;
+	public final fun fromResource (Ljava/lang/Class;Ljava/lang/String;)Lme/patrykanuszczyk/ktutils/strings/SecureString;
+	public final fun fromResource (Lkotlin/reflect/KClass;Ljava/lang/String;)Lme/patrykanuszczyk/ktutils/strings/SecureString;
+}
+
+public final class me/patrykanuszczyk/ktutils/strings/StringsKt {
+	public static final fun getRandomString (Ljava/util/Collection;I)Ljava/lang/String;
+	public static final fun withPrefix (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun withPrefixIfNotEmpty (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun withSuffix (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+	public static final fun withSuffixIfNotEmpty (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+}
+

@@ -12,9 +12,9 @@ class PeekableWrapperIterator<out T> internal constructor(private val innerItera
         return peek
     }
 
-    @Suppress("UNCHECKED_CAST")
-    override fun peek() = if (has) (next as T) else throw
-    NoSuchElementException()
+    override fun peek() =
+        if (has) next!!
+        else throw NoSuchElementException()
 
     override fun hasNext() = has
 }

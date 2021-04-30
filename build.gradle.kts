@@ -1,7 +1,7 @@
 plugins {
-    id("java")
     kotlin("jvm") version "1.4.32"
     id("maven-publish")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.5.0"
 }
 
 group = "me.patrykanuszczyk"

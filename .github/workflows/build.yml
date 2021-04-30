@@ -27,6 +27,12 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
 
+      - name: Compile
+        run: ./gradlew classes
+
+      - name: Run tests
+        run: ./gradlew check
+
       - name: Build
         run: ./gradlew build
 
