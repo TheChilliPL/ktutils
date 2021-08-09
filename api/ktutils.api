@@ -39,8 +39,8 @@ public abstract interface class me/patrykanuszczyk/ktutils/charset/CharsetDetect
 
 public abstract class me/patrykanuszczyk/ktutils/charset/CharsetDetector {
 	public fun <init> ()V
-	public final fun detect (Ljava/io/ByteArrayInputStream;Lkotlin/jvm/functions/Function1;)Ljava/nio/charset/Charset;
-	public abstract fun detect (Ljava/io/ByteArrayInputStream;Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;)Ljava/nio/charset/Charset;
+	public final fun detect (Ljava/io/InputStream;Lkotlin/jvm/functions/Function1;)Ljava/nio/charset/Charset;
+	public abstract fun detect (Ljava/io/InputStream;Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;)Ljava/nio/charset/Charset;
 	public abstract fun getDefaultOptions ()Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;
 }
 
@@ -63,8 +63,8 @@ public final class me/patrykanuszczyk/ktutils/charset/ExpectedLettersCharsetDete
 
 public final class me/patrykanuszczyk/ktutils/charset/ExpectedLettersCharsetDetector : me/patrykanuszczyk/ktutils/charset/CharsetDetector {
 	public fun <init> ()V
-	public synthetic fun detect (Ljava/io/ByteArrayInputStream;Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;)Ljava/nio/charset/Charset;
-	public fun detect (Ljava/io/ByteArrayInputStream;Lme/patrykanuszczyk/ktutils/charset/ExpectedLettersCharsetDetectionOptions;)Ljava/nio/charset/Charset;
+	public synthetic fun detect (Ljava/io/InputStream;Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;)Ljava/nio/charset/Charset;
+	public fun detect (Ljava/io/InputStream;Lme/patrykanuszczyk/ktutils/charset/ExpectedLettersCharsetDetectionOptions;)Ljava/nio/charset/Charset;
 	public synthetic fun getDefaultOptions ()Lme/patrykanuszczyk/ktutils/charset/CharsetDetectionOptions;
 	public fun getDefaultOptions ()Lme/patrykanuszczyk/ktutils/charset/ExpectedLettersCharsetDetectionOptions;
 }
