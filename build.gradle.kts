@@ -1,8 +1,7 @@
-import org.gradle.kotlin.dsl.support.compileKotlinScriptModuleTo
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.4.32"
+    kotlin("jvm") version "1.5.21"
     id("maven-publish")
     id("org.jetbrains.kotlinx.binary-compatibility-validator") version "0.5.0"
 }
@@ -17,6 +16,8 @@ repositories {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
+        sourceCompatibility = "1.8"
+        targetCompatibility = "1.8"
     }
 }
 

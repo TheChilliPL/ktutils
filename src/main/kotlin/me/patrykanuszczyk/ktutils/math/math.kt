@@ -32,7 +32,7 @@ fun Number.niceFormatAsSiBytes(
     separator: String = " "
 ) = niceFormat(precision, separator = separator) + "B"
 
-val binBytesFormatUnits = niceFormatUnits.map { it.toUpperCase() + "iB" }
+val binBytesFormatUnits = niceFormatUnits.map { it.uppercase() + "iB" }
 fun Number.niceFormatAsBinBytes(
     precision: Int = 1,
     separator: String = " "

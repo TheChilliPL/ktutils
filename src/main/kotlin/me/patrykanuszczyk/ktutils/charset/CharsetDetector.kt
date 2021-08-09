@@ -23,10 +23,14 @@ class ExpectedLettersCharsetDetector
     : CharsetDetector<ExpectedLettersCharsetDetectionOptions>()
 {
     override fun detect(stream: ByteArrayInputStream, options: ExpectedLettersCharsetDetectionOptions): Charset {
-        val bytes = stream.readAllBytes()
+        //val bytes = stream.readAllBytes()
+        val bytes = generateSequence {
+            val byte = stream.read()
+            if(byte >= 0) byte.toByte() else null
+        }.toList().toByteArray()
 
         val values = options.checkCharsets.associateWith { charset ->
-            var str = bytes.toString(charset)
+            var str = String(bytes, charset)
             if(options.checkFirst > 0) str = str.take(options.checkFirst)
             str.toList().map { char ->
                 if(char.isLetter())
@@ -50,7 +54,7 @@ class ExpectedLettersCharsetDetectionOptions : CharsetDetectionOptions {
 
     fun byLanguage(languageCode: String) {
         val split = languageCode.split('-', limit = 2)
-        val language = split[0].toLowerCase()
+        val language = split[0].lowercase()
         //val country = split.getOrNull(1)?.toLowerCase()
 
         expectLetters = when(language) {
