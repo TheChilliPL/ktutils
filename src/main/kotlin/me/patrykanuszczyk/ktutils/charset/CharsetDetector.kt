@@ -1,18 +1,19 @@
 package me.patrykanuszczyk.ktutils.charset
 
 import java.io.ByteArrayInputStream
+import java.io.InputStream
 import java.lang.IllegalStateException
 import java.nio.charset.Charset
 import java.util.stream.Collectors.toList
 import kotlin.NoSuchElementException
 
 abstract class CharsetDetector<Options : CharsetDetectionOptions> {
-    fun detect(stream: ByteArrayInputStream, applyOptions: Options.() -> Unit): Charset {
+    fun detect(stream: InputStream, applyOptions: Options.() -> Unit): Charset {
         val options = getDefaultOptions().apply(applyOptions)
 
         return detect(stream, options)
     }
-    abstract fun detect(stream: ByteArrayInputStream, options: Options): Charset
+    abstract fun detect(stream: InputStream, options: Options): Charset
 
     abstract fun getDefaultOptions(): Options
 }
@@ -22,7 +23,7 @@ interface CharsetDetectionOptions
 class ExpectedLettersCharsetDetector
     : CharsetDetector<ExpectedLettersCharsetDetectionOptions>()
 {
-    override fun detect(stream: ByteArrayInputStream, options: ExpectedLettersCharsetDetectionOptions): Charset {
+    override fun detect(stream: InputStream, options: ExpectedLettersCharsetDetectionOptions): Charset {
         //val bytes = stream.readAllBytes()
         val bytes = generateSequence {
             val byte = stream.read()
