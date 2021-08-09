@@ -1,3 +1,6 @@
+import org.gradle.kotlin.dsl.support.compileKotlinScriptModuleTo
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.4.32"
     id("maven-publish")
@@ -9,6 +12,12 @@ version = "0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 tasks.withType<Test> {
