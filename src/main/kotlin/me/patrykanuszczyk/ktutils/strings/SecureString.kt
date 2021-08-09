@@ -38,6 +38,11 @@ abstract class SecureString : CharSequence {
         return destination
     }
 
+    /**
+     * Clears the string from the memory.
+     * It may be replaced with random noise, null characters, or anything.
+     * The string shouldn't be used after clearing.
+     */
     protected abstract fun clear()
 
     protected fun finalize() {
@@ -66,7 +71,9 @@ abstract class SecureString : CharSequence {
                     "Unknown length resources not yet supported."
                 )
 
-            return fromReader(connection.inputStream.reader(), length)
+            connection.inputStream.use { inputStream ->
+                return fromReader(inputStream.reader(), length)
+            }
         }
     }
 }
